@@ -5,9 +5,10 @@ for test_case in range(1, 1+T):
     station = [0] * 5001
     station_output = [0] * 5001
     for _ in range(N):
-        A, B = map(int,input().split())
+        A, B = map(int, input().split())
         for idx in range(A, B+1):
             station[idx] += 1
+
     P = int(input())
     count_c = 0
     for _ in range(P):
@@ -15,7 +16,7 @@ for test_case in range(1, 1+T):
         station_output[C] += 1
         count_c += 1
     print(f'#{test_case}', end=" ")
-    for idx in range(5001):
+    for idx in range(len(station_output)):
         if station_output[idx] and count_c != 1:
             print(f'{station[idx]}', end=" ")
             count_c -= 1
