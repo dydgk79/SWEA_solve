@@ -17,7 +17,9 @@ for test_case in range(1, 1+T):
 
         # 이동했을 때 문제있는지 확인 (range, 0이 아닌 숫자가 들어있는가)
         # 있으면 이동 취소하고, direction 바꾸고 이동
-        if x == N or y == N or answer[x][y] != 0:
+        out_of_range = [-1, N]
+        # if x == N or y == N or x == -1 or y == -1 or answer[x][y] != 0:
+        if x in out_of_range or y in out_of_range or answer[x][y] != 0:
             x -= direction[directing_number][0]
             y -= direction[directing_number][1]
             directing_number += 1
