@@ -6,7 +6,6 @@ for test_case in range(1, 1+T):
     direction = [[0,1], [1,0], [0,-1], [-1,0]]
     x, y = 0, 0
     directing_number = 0
-    answer[x][y] = 1
 
     for times in range(1, N*N+1):
         # 숫자 넣기
