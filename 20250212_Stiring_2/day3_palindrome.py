@@ -14,11 +14,12 @@ for test_case in range(1, 1+T):
 
     for c in range(N):
         for r in range(N-M+1):
-            for idx_c in range(M//2):
-                if input_arr[r+idx_c][c] != input_arr[r+M-1-idx_c][c]:
+            compare_str_list = []
+            for idx_c in range(M):
+                compare_str_list.append(input_arr[r+idx_c][c])
+            compare_str = ''.join(compare_str_list)
+            for idx_2 in range(M//2):
+                if compare_str[idx_2] != compare_str[M-1-idx_2]:
                     break
             else:
-                print(f'#{test_case}', end=" ")
-                for idx in range(M):
-                    print(input_arr[idx][c], end="")
-                print()
+                print(f'#{test_case} {compare_str}')
