@@ -1,3 +1,7 @@
+import sys
+sys.stdin = open("sample_input.txt", "r")
+
+
 def hex_to_bin(s):
     if s == '0':
         return '0000'
@@ -123,7 +127,7 @@ for test_case in range(1, 1+T):
     for spy_code in spy_codes:
         password = ""
         use_idx = len(spy_code) - 1
-        while use_idx > 8:
+        while use_idx > 7:
             if spy_code[use_idx] == '1':
                 [a, b, c] = code_finder(use_idx)
                 k = min(a, b, c)
@@ -131,9 +135,6 @@ for test_case in range(1, 1+T):
                 use_idx -= 7*k
             else:
                 use_idx -= 1
-        if len(password)%8:
-            while len(password)%8:
-                password = '0' + password
         passwords.add(password)
 
     eight_bits_pwd = set()
