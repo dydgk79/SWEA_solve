@@ -42,9 +42,21 @@ def shot(arr, j, r):
     return temp_arr, remain_cnt
 
 
+def downer(arr):
+    temp_arr = copy.deepcopy(arr)
+    for c in range(W):
+        height = H-1
+        for idx in range(height-1, -1, -1):
+            if temp_arr[height][c]:
+                break
+            elif temp_arr[height][c] == 0 and temp_arr[idx][c]:
+                temp_arr[height][c], temp_arr[idx][c] = temp_arr[idx][c], temp_arr[height][c]
+    return temp_arr
+
+
 T = int(input())
 
-for tc in range(1, 1+T):
+for tc in range(1):
     N, W, H = map(int, input().split())
     brick_data = [list(map(int, input().split())) for _ in range(H)]
     min_value = float('inf')
@@ -53,4 +65,7 @@ for tc in range(1, 1+T):
         for c in range(W):
             if brick_data[r][c]:
                 remain += 1
-
+    brick_data, remain = shot(brick_data, 9, remain)
+    brick_data, remain = shot(brick_data, 9, remain)
+    brick_data = downer(brick_data)
+    print(brick_data)
