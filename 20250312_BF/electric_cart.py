@@ -3,6 +3,7 @@ def recur(s, cnt, cur_sum):
     if cur_sum > min_sum:
         return
     if cnt == N and s == 0:
+        print(path)
         min_sum = min(min_sum, cur_sum)
         return
     elif cnt == N and s != 0:
