@@ -37,7 +37,7 @@ for tc in range(1, T+1):
         union(s, e)
 
     for idx in range(1, 1+N):
-        find_set()
+        find_set(idx)
 
     set_num = set()
     for idx in range(1, 1+N):
